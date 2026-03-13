@@ -17,6 +17,13 @@
 		5B02C6222D633D8000800EC1 /* VlessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02C61F2D633D8000800EC1 /* VlessManager.swift */; };
 		5B02C6232D633D8000800EC1 /* VlessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02C6202D633D8000800EC1 /* VlessModel.swift */; };
 		5B02C6242D633D8000800EC1 /* VlessConf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02C61D2D633D8000800EC1 /* VlessConf.swift */; };
+		5B02C6262D633F0000800EC1 /* OpenVPNManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02C6272D633F0000800EC1 /* OpenVPNManager.swift */; };
+		5B02C6282D63401000800EC1 /* VlessToSingbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02C6292D63401000800EC1 /* VlessToSingbox.swift */; };
+		5B02C6332D63420000800EC1 /* ExtensionFilePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02C62E2D63420000800EC1 /* ExtensionFilePath.swift */; };
+		5B02C6342D63420000800EC1 /* ExtensionRunBlocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02C62F2D63420000800EC1 /* ExtensionRunBlocking.swift */; };
+		5B02C6352D63420000800EC1 /* ExtensionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02C6302D63420000800EC1 /* ExtensionProvider.swift */; };
+		5B02C6362D63420000800EC1 /* ExtensionPlatformInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02C6312D63420000800EC1 /* ExtensionPlatformInterface.swift */; };
+		5B8F39A72F63D69B007A9C87 /* Libbox.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B8F39A62F63D69B007A9C87 /* Libbox.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +71,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5B02C6392D63420000800EC1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +99,13 @@
 		5B02C61F2D633D8000800EC1 /* VlessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VlessManager.swift; sourceTree = "<group>"; };
 		5B02C6202D633D8000800EC1 /* VlessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VlessModel.swift; sourceTree = "<group>"; };
 		5B02C6252D633EFC00800EC1 /* Vless.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vless.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B02C6272D633F0000800EC1 /* OpenVPNManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenVPNManager.swift; sourceTree = "<group>"; };
+		5B02C6292D63401000800EC1 /* VlessToSingbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VlessToSingbox.swift; sourceTree = "<group>"; };
+		5B02C62E2D63420000800EC1 /* ExtensionFilePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFilePath.swift; sourceTree = "<group>"; };
+		5B02C62F2D63420000800EC1 /* ExtensionRunBlocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRunBlocking.swift; sourceTree = "<group>"; };
+		5B02C6302D63420000800EC1 /* ExtensionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionProvider.swift; sourceTree = "<group>"; };
+		5B02C6312D63420000800EC1 /* ExtensionPlatformInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionPlatformInterface.swift; sourceTree = "<group>"; };
+		5B8F39A62F63D69B007A9C87 /* Libbox.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Libbox.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5145D1BD2D5572030034080E /* NetworkExtension.framework in Frameworks */,
+				5B8F39A72F63D69B007A9C87 /* Libbox.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				5145D1B52D556F460034080E /* NetworkExtension.framework */,
+				5B8F39A62F63D69B007A9C87 /* Libbox.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,6 +141,10 @@
 			isa = PBXGroup;
 			children = (
 				5145D1BF2D5572030034080E /* TunnelProvider.swift */,
+				5B02C62E2D63420000800EC1 /* ExtensionFilePath.swift */,
+				5B02C62F2D63420000800EC1 /* ExtensionRunBlocking.swift */,
+				5B02C6302D63420000800EC1 /* ExtensionProvider.swift */,
+				5B02C6312D63420000800EC1 /* ExtensionPlatformInterface.swift */,
 				5145D1C12D5572030034080E /* Info.plist */,
 				5145D1C22D5572030034080E /* VPNExtension.entitlements */,
 			);
@@ -129,6 +159,8 @@
 				5B02C61E2D633D8000800EC1 /* VlessConst.swift */,
 				5B02C61F2D633D8000800EC1 /* VlessManager.swift */,
 				5B02C6202D633D8000800EC1 /* VlessModel.swift */,
+				5B02C6272D633F0000800EC1 /* OpenVPNManager.swift */,
+				5B02C6292D63401000800EC1 /* VlessToSingbox.swift */,
 				51A544E52D53E7040058BA02 /* ContentView.swift */,
 				51A544E42D53E7040058BA02 /* Assets.xcassets */,
 				51A544E62D53E7040058BA02 /* Info.plist */,
@@ -159,6 +191,7 @@
 				5145D1B92D5572030034080E /* Frameworks */,
 				5145D1BA2D5572030034080E /* Resources */,
 				51FDADE42D558403008C07CB /* CopyFiles */,
+				5B02C6392D63420000800EC1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,6 +284,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5145D1C02D5572030034080E /* TunnelProvider.swift in Sources */,
+				5B02C6332D63420000800EC1 /* ExtensionFilePath.swift in Sources */,
+				5B02C6342D63420000800EC1 /* ExtensionRunBlocking.swift in Sources */,
+				5B02C6352D63420000800EC1 /* ExtensionProvider.swift in Sources */,
+				5B02C6362D63420000800EC1 /* ExtensionPlatformInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +299,8 @@
 				5B02C6222D633D8000800EC1 /* VlessManager.swift in Sources */,
 				5B02C6232D633D8000800EC1 /* VlessModel.swift in Sources */,
 				5B02C6242D633D8000800EC1 /* VlessConf.swift in Sources */,
+				5B02C6262D633F0000800EC1 /* OpenVPNManager.swift in Sources */,
+				5B02C6282D63401000800EC1 /* VlessToSingbox.swift in Sources */,
 				5155417F2D54F6690082E77D /* Main.swift in Sources */,
 				51A544EE2D53E7040058BA02 /* ContentView.swift in Sources */,
 			);
@@ -295,7 +334,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KF4T4F29C9;
+				DEVELOPMENT_TEAM = 65XP2LDB6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/VPNExtension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = VPNExtension;
@@ -307,7 +346,11 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.freecity.vpn.VPNExtension;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lresolv",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.testvpn.max.VPNExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -327,7 +370,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KF4T4F29C9;
+				DEVELOPMENT_TEAM = 65XP2LDB6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/VPNExtension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = VPNExtension;
@@ -339,7 +382,11 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.freecity.vpn.VPNExtension;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lresolv",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.testvpn.max.VPNExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -483,7 +530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = KF4T4F29C9;
+				DEVELOPMENT_TEAM = 65XP2LDB6Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Vless/Info.plist";
@@ -501,7 +548,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.freecity.vpn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testvpn.max;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -524,7 +571,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = KF4T4F29C9;
+				DEVELOPMENT_TEAM = 65XP2LDB6Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Vless/Info.plist";
@@ -542,7 +589,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.freecity.vpn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testvpn.max;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -15,7 +15,7 @@ class VlessConf {
         tunnelProtocol.providerBundleIdentifier = VlessConst.providerBundleIdentifier
         tunnelProtocol.serverAddress = config.host
 
-        tunnelProtocol.providerConfiguration = [
+        var providerConfig: [String: Any] = [
             "UUID": config.id,
             "host": config.host,
             "port": config.port,
@@ -30,7 +30,11 @@ class VlessConf {
             "OnDemandEnabled": true,
             "OnDemandRules": VlessConst.defaultOnDemandRules
         ]
+        if let singboxJson = VlessToSingbox.buildConfig(from: config) {
+            providerConfig["config"] = singboxJson
+        }
 
+        tunnelProtocol.providerConfiguration = providerConfig
         tunnelProtocol.disconnectOnSleep = false
         return tunnelProtocol
     }

@@ -1,0 +1,87 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Xcode
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+# Ignore xcworkspace files, but keep project.xcworkspace/contents.xcworkspacedata
+!**/project.xcworkspace/contents.xcworkspacedata
+*.xcworkspace
+xcuserdata/
+*.xcuserdatad
+*.xcuserstate
+*.xccheckout
+*.xcodeproj/*.swp
+*.xcodeproj/*/project.xcworkspace/xcuserdata
+*.xcodeproj/project.xcworkspace/xcuserdata
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
+# SwiftPM
+.build/
+Package.resolved
+.swiftpm/xcode/package.xcworkspace/
+.swiftpm/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+Carthage/Build
+
+# Fastlane
+fastlane/report.xml
+fastlane/screenshots/
+fastlane/test_output/
+
+# Archives & build
+*.xcarchive
+DerivedData/
+build/
+
+# User-specific
+*.moved-aside
+*.swp
+*~.nib
+.idea/
+*.iml
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# SPM artifacts
+.swiftpm/
+
+# Simulator
+CoreSimulator/
+
+# Logs
+*.log
+
+# Asset Catalog
+*.xcassets/*.DS_Store
+
+# Preview files
+*.preview-thumbnails
+
+# Other system files
+*.tmp
+*.temp
+
+# Optional: ignore local config or secret files
+.env
+*.key
+*.pem
+
+# Libbox (too large for GitHub; add manually, see Frameworks/README_Libbox.txt)
+Libbox.xcframework/

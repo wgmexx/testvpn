@@ -10,6 +10,10 @@ struct VlessModel {
     let sni: String?
     let fingerprint: String?
     let publicKey: String?
+    /// Путь для WebSocket (query-параметр path)
+    let path: String?
+    /// Host-заголовок для WebSocket (query-параметр host)
+    let hostHeader: String?
 
     init?(from urlString: String) {
         guard let url = URLComponents(string: urlString),
@@ -31,6 +35,8 @@ struct VlessModel {
         self.sni = queryItems.first(where: { $0.name == "sni" })?.value
         self.fingerprint = queryItems.first(where: { $0.name == "fp" })?.value
         self.publicKey = queryItems.first(where: { $0.name == "pbk" })?.value
+        self.path = queryItems.first(where: { $0.name == "path" })?.value
+        self.hostHeader = queryItems.first(where: { $0.name == "host" })?.value
 
         if self.security == "none" {
             print("Warning: 'security' parameter not found, using default 'none'")

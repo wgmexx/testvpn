@@ -1,18 +1,41 @@
 import Foundation
 import NetworkExtension
 
-class VlessManager {
+class VlessManager: ObservableObject {
     static let shared = VlessManager()
     private var providerManager: NETunnelProviderManager?
+    private var statusObserver: NSObjectProtocol?
+
+    @Published private(set) var isConfigLoaded = false
+    @Published private(set) var connectionStatus: NEVPNStatus = .invalid
 
     private init() {
         loadProviderManager()
     }
 
     public func loadProviderManager() {
+        loadProviderManager(retryCount: 0)
+    }
+
+    private func loadProviderManager(retryCount: Int) {
+        let maxRetries = 2
         NETunnelProviderManager.loadAllFromPreferences { [weak self] (managers, error) in
+            guard let self = self else { return }
             if let error = error {
                 print("Error: load VPN config: \(error.localizedDescription)")
+                if (error as NSError).localizedDescription.contains("IPC") && retryCount < maxRetries {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+                        self?.loadProviderManager(retryCount: retryCount + 1)
+                    }
+                    return
+                }
+                DispatchQueue.main.async {
+                    let manager = NETunnelProviderManager()
+                    self.providerManager = manager
+                    self.connectionStatus = manager.connection.status
+                    self.isConfigLoaded = true
+                    self.observeVPNStatus(connection: manager.connection)
+                }
                 return
             }
 
@@ -29,10 +52,28 @@ class VlessManager {
             } else {
                 manager = NETunnelProviderManager()
                 print("Creating new VPN config")
-                self?.setupVPNConfiguration(manager, withURL: "vless://")
+                self.setupVPNConfiguration(manager, withURL: "vless://")
             }
 
-            self?.providerManager = manager
+            self.providerManager = manager
+            DispatchQueue.main.async {
+                self.connectionStatus = manager.connection.status
+                self.isConfigLoaded = true
+                self.observeVPNStatus(connection: manager.connection)
+            }
+        }
+    }
+
+    private func observeVPNStatus(connection: NEVPNConnection) {
+        if let observer = statusObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
+        statusObserver = NotificationCenter.default.addObserver(
+            forName: .NEVPNStatusDidChange,
+            object: connection,
+            queue: .main
+        ) { [weak self] _ in
+            self?.connectionStatus = self?.providerManager?.connection.status ?? .invalid
         }
     }
 
@@ -85,13 +126,17 @@ class VlessManager {
 
     private func reloadConfiguration() {
         NETunnelProviderManager.loadAllFromPreferences { [weak self] managers, error in
+            guard let self = self else { return }
             if let error = error {
                 print("Error: reloading configuration: \(error.localizedDescription)")
                 return
             }
-
             if let updatedManager = managers?.first {
-                self?.providerManager = updatedManager
+                self.providerManager = updatedManager
+                DispatchQueue.main.async {
+                    self.connectionStatus = updatedManager.connection.status
+                    self.observeVPNStatus(connection: updatedManager.connection)
+                }
                 print("VPN config updated")
             }
         }
